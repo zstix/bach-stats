@@ -29,7 +29,8 @@ const StatTable = (props) => {
           <TableRow>
             <TableCell>Name</TableCell>
             <TableCell align="right">Age</TableCell>
-            <TableCell align="right">Favorite Color</TableCell>
+            <TableCell align="right">Location</TableCell>
+            <TableCell align="right">Occupation</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -37,7 +38,8 @@ const StatTable = (props) => {
             <TableRow key={row.id}>
               <TableCell component="th" scope="row">{row.name}</TableCell>
               <TableCell align="right">{row.age}</TableCell>
-              <TableCell align="right">{row.color}</TableCell>
+              <TableCell align="right">{row.location}</TableCell>
+              <TableCell align="right">{row.occupation}</TableCell>
             </TableRow>
           ))}
         </TableBody>
