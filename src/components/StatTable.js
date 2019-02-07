@@ -17,6 +17,14 @@ const styles = theme => ({
   table: {
     minWidth: 700,
   },
+  image: {
+    display: 'inline',
+    marginRight: '1em',
+    width: '2.5em',
+    height: '2.5em',
+    borderRadius: '50%',
+    verticalAlign: 'middle',
+  },
 });
 
 const StatTable = (props) => {
@@ -36,7 +44,10 @@ const StatTable = (props) => {
         <TableBody>
           {data.map(row => (
             <TableRow key={row.id}>
-              <TableCell component="th" scope="row">{row.name}</TableCell>
+              <TableCell component="th" scope="row">
+                <img className={classes.image} src={row.image} />
+                {row.name}
+              </TableCell>
               <TableCell align="right">{row.age}</TableCell>
               <TableCell align="right">{row.location}</TableCell>
               <TableCell align="right">{row.occupation}</TableCell>

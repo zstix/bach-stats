@@ -5,6 +5,7 @@ export default [
     age: 26,
     location: 'West Hollywood, California',
     occupation: 'Social Worker',
+    image: 'https://www.bachbracket.com/wp-content/uploads/2018/12/adrienne-jane.png',
   },
   {
     id: 2,
@@ -12,6 +13,7 @@ export default [
     age: 29,
     location: 'Vancouver, British Columbia',
     occupation: 'Dog Rescuer',
+    image: 'https://www.bachbracket.com/wp-content/uploads/2018/12/alex-b.png',
   },
   {
     id: 3,
@@ -19,6 +21,7 @@ export default [
     age: 23,
     location: 'Boston, Massachusets',
     occupation: 'Sloth',
+    image: 'https://www.bachbracket.com/wp-content/uploads/2018/12/alex-d.png',
   },
   {
     id: 4,
@@ -26,6 +29,7 @@ export default [
     age: 28,
     location: 'Hamilton, New Jersey',
     occupation: 'Marketing Salesperson',
+    image: 'https://www.bachbracket.com/wp-content/uploads/2018/12/angelique.png',
   },
   {
     id: 5,
@@ -33,6 +37,7 @@ export default [
     age: 23,
     location: 'New York, New York',
     occupation: 'Financial Associate',
+    image: 'https://www.bachbracket.com/wp-content/uploads/2018/12/annie.png',
   },
   {
     id: 6,
@@ -40,6 +45,7 @@ export default [
     age: 24,
     location: 'Los Angeles, California',
     occupation: 'Model',
+    image: 'https://www.bachbracket.com/wp-content/uploads/2018/12/bri.png',
   },
   {
     id: 7,
@@ -47,6 +53,7 @@ export default [
     age: 23,
     location: 'Charlotte, North Carolina',
     occupation: 'Miss North Carolina 2018',
+    image: 'https://www.bachbracket.com/wp-content/uploads/2018/12/caelynn.png',
   },
   {
     id: 8,
@@ -54,6 +61,7 @@ export default [
     age: 25,
     location: 'Toronto, Ontario',
     occupation: 'Realtor',
+    image: 'https://www.bachbracket.com/wp-content/uploads/2018/12/caitlin.png',
   },
   {
     id: 9,
@@ -61,6 +69,7 @@ export default [
     age: 23,
     location: 'Huntington Beach, California',
     occupation: 'Speech Pathologist',
+    image: 'https://www.bachbracket.com/wp-content/uploads/2018/12/cassie.png',
   },
   {
     id: 10,
@@ -68,6 +77,7 @@ export default [
     age: 26,
     location: 'Ft. Lauderdale, Florida',
     occupation: 'DJ',
+    image: 'https://www.bachbracket.com/wp-content/uploads/2018/12/catherine.png',
   },
   {
     id: 11,
@@ -75,6 +85,7 @@ export default [
     age: 23,
     location: 'Atlanta, Georgia',
     occupation: 'Caterer',
+    image: 'https://www.bachbracket.com/wp-content/uploads/2018/12/courtney.png',
   },
   {
     id: 12,
@@ -82,6 +93,7 @@ export default [
     age: 23,
     location: 'Red Oak, Texas',
     occupation: 'Interior Designer',
+    image: 'https://www.bachbracket.com/wp-content/uploads/2018/12/demi.png',
   },
   {
     id: 13,
@@ -89,6 +101,7 @@ export default [
     age: 23,
     location: 'Medford, Oregon',
     occupation: 'Broadcast Journalist',
+    image: 'https://www.bachbracket.com/wp-content/uploads/2018/12/devin.png',
   },
   {
     id: 14,
@@ -96,6 +109,7 @@ export default [
     age: 31,
     location: 'Soldotna, AK',
     occupation: 'Makeup Artist',
+    image: 'https://www.bachbracket.com/wp-content/uploads/2018/12/elyse.png',
   },
   {
     id: 15,
@@ -103,6 +117,7 @@ export default [
     age: 25,
     location: 'Encinitas, California',
     occupation: 'Recruiter',
+    image: 'https://www.bachbracket.com/wp-content/uploads/2018/12/erika.png',
   },
   {
     id: 17,
@@ -110,6 +125,7 @@ export default [
     age: 28,
     location: 'Plano, Texas',
     occupation: 'Cinderella',
+    image: 'https://www.bachbracket.com/wp-content/uploads/2018/12/erin.png',
   },
   {
     id: 18,
@@ -117,6 +133,7 @@ export default [
     age: 23,
     location: 'Tuscaloosa, Alabama',
     occupation: 'Miss Alabama 2018',
+    image: 'https://www.bachbracket.com/wp-content/uploads/2018/12/hannah.png',
   },
   {
     id: 19,
@@ -124,6 +141,7 @@ export default [
     age: 23,
     location: 'Birmingham, Alabama',
     occupation: 'Content Creator',
+    image: 'https://www.bachbracket.com/wp-content/uploads/2018/12/hannah-g.png',
   },
   {
     id: 20,
@@ -131,6 +149,7 @@ export default [
     age: 22,
     location: 'Carlsbad, California',
     occupation: 'Never Been Kissed',
+    image: 'https://www.bachbracket.com/wp-content/uploads/2018/12/heather.png',
   },
   {
     id: 21,
@@ -138,6 +157,7 @@ export default [
     age: 26,
     location: 'Sherman Oaks, California',
     occupation: 'Medical Sales Rep',
+    image: 'https://www.bachbracket.com/wp-content/uploads/2018/12/katie.png',
   },
   {
     id: 22,
@@ -145,6 +165,7 @@ export default [
     age: 26,
     location: 'Whittier, California',
     occupation: 'Dental Hygienist',
+    image: 'https://www.bachbracket.com/wp-content/uploads/2018/12/kirpa.png',
   },
   {
     id: 23,
@@ -152,6 +173,7 @@ export default [
     age: 26,
     location: 'Dallas, Texas',
     occupation: 'Accountant',
+    image: 'https://www.bachbracket.com/wp-content/uploads/2018/12/laura.png',
   },
   {
     id: 24,
@@ -159,6 +181,7 @@ export default [
     age: 25,
     location: 'Miami, Florida',
     occupation: 'Social Media Coordinator',
+    image: 'https://www.bachbracket.com/wp-content/uploads/2018/12/nicole.png',
   },
   {
     id: 25,
@@ -166,6 +189,7 @@ export default [
     age: 30,
     location: 'Raleigh, North Carolina',
     occupation: 'Sales Account Manager',
+    image: 'https://www.bachbracket.com/wp-content/uploads/2018/12/nina.png',
   },
   {
     id: 26,
@@ -173,6 +197,7 @@ export default [
     age: 24,
     location: 'Dallas, Texas',
     occupation: 'IT Risk Consultant',
+    image: 'https://www.bachbracket.com/wp-content/uploads/2018/12/onyenka.png',
   },
   {
     id: 27,
@@ -180,6 +205,7 @@ export default [
     age: 24,
     location: 'Santa Monica, California',
     occupation: 'Nurse',
+    image: 'https://www.bachbracket.com/wp-content/uploads/2018/12/revian.png',
   },
   {
     id: 28,
@@ -187,6 +213,7 @@ export default [
     age: 27,
     location: 'New York, New York',
     occupation: 'NBA Dancer',
+    image: 'https://www.bachbracket.com/wp-content/uploads/2018/12/sydney.png',
   },
   {
     id: 29,
@@ -194,6 +221,7 @@ export default [
     age: 25,
     location: 'Castle Pines, Colorado',
     occupation: 'Business Development Associate',
+    image: 'https://www.bachbracket.com/wp-content/uploads/2018/12/tahzjuan.png',
   },
   {
     id: 30,
@@ -201,6 +229,7 @@ export default [
     age: 28,
     location: 'Corona Del Mar, California',
     occupation: 'Phlebotomist',
+    image: 'https://www.bachbracket.com/wp-content/uploads/2018/12/tayshia.png',
   },
   {
     id: 31,
@@ -208,5 +237,6 @@ export default [
     age: 31,
     location: 'Los Angeles, California',
     occupation: 'Wardrobe Stylist',
+    image: 'https://www.bachbracket.com/wp-content/uploads/2018/12/tracy.png',
   },
 ];
