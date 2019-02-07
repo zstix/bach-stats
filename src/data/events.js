@@ -1,4 +1,5 @@
 export default [
+  { id: 0, value: 0, name: 'Eliminated' },
   { id: 1, value: 5, name: 'First 1 on 1 date with Colton' },
   { id: 2, value: 5, name: 'Contestant recieves sexond overall rose' },
   { id: 3, value: 10, name: 'First boat ride' },
