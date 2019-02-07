@@ -37,7 +37,7 @@ const StatTable = (props) => {
             <TableRow key={row.id}>
               <TableCell component="th" scope="row">{row.name}</TableCell>
               <TableCell align="right">{row.age}</TableCell>
-              <TableCell align="right">{row.favColor}</TableCell>
+              <TableCell align="right">{row.color}</TableCell>
             </TableRow>
           ))}
         </TableBody>
