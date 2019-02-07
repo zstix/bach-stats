@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
+import TopBar from './components/TopBar';
 import StatTable from './components/StatTable';
 
 // TODO: add in actual data
@@ -14,6 +15,7 @@ const data = [
 const App = () => (
   <React.Fragment>
     <CssBaseline />
+    <TopBar />
     <StatTable data={data} />
   </React.Fragment>
 );
