@@ -5,7 +5,7 @@ A dumb app that presents statistics of contestants on reality television.
 - [x] Setup project
 - [x] Load in event data
 - [x] Load in contestant data
-- [ ] Load in week data
+- [x] Load in week data
 - [ ] Abstraction method for StatTable
 - [ ] Make weekly contestant scores table
 - [ ] App state: sorting (name, score)

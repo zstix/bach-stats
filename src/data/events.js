@@ -56,4 +56,6 @@ export default [
   { id: 57, value: -20, name: 'Brings up an ex who was a past Bach contestant' },
   { id: 58, value: -20, name: 'Contestant\'s ex shows up' },
   { id: 59, value: -20, name: 'Dumped/leaves outside of a rose ceremony' },
+  { id: 60, value: 5, name: 'Contestant recieves second overall rose' },
+  { id: 61, value: 5, name: 'First 1 on 1 hot tub date with Colton' },
 ];
