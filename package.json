@@ -21,6 +21,8 @@
     "parcel-bundler": "^1.11.0"
   },
   "dependencies": {
+    "@material-ui/core": "^3.9.2",
+    "prop-types": "^15.6.2",
     "react": "^16.8.1",
     "react-dom": "^16.8.1"
   }
