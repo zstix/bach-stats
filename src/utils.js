@@ -5,8 +5,8 @@ import events from './data/events';
 // given an event id, get the details
 const getEventDetails = id => events.find(e => e.id === id);
 
-// given a list of event ids, get their details
-// const getEventList = ids => ids.map(getEventDetails);
+// given a contestant id, get the details
+const getContestant = id => contestants.find(c => c.id === id);
 
 // given a list of event ids, get thie total value only
 const calcScores = ids => ids.reduce((score, id) => score + getEventDetails(id).value, 0);
@@ -17,6 +17,17 @@ const findContestantWeekEvents = (week, id) => {
   return score ? score.events : [];
 };
 
+// filter the contestants by the ones that have been eliminated
+const getActiveContestants = () => {
+  const lastWeekScores = weeks[weeks.length - 1].scores;
+  return lastWeekScores.reduce((acc, data) => {
+    if (data.events.indexOf(0) === -1) {
+      acc.push(getContestant(data.contestant));
+    }
+    return acc;
+  }, []);
+};
+
 // table data to display ALL the contestant information
 export const contestantTable = () => {
   const columns = [
@@ -25,11 +36,12 @@ export const contestantTable = () => {
     { id: 3, key: 'location', display: 'Location' },
     { id: 4, key: 'occupation', display: 'Occupation' },
   ];
+
   return { columns, body: contestants };
 };
 
-// table data to display contestant scores
-export const contestantScoreTable = () => {
+// table data to display contestant scores, for all contestants or active ones
+export const contestantScoreTable = (onlyActive = true) => {
   const columns = weeks.reduce((cols, week) => ([
     ...cols,
     {
@@ -44,13 +56,17 @@ export const contestantScoreTable = () => {
       display: 'Name',
     },
   ]);
-  const body = contestants.map((contestant) => {
+
+  const data = onlyActive ? getActiveContestants() : contestants;
+
+  const body = data.map((contestant) => {
     const scores = weeks.reduce((s, week) => {
       const key = `${week.id}_score`;
       const weekScores = findContestantWeekEvents(week, contestant.id);
       const value = calcScores(weekScores);
       return { ...s, [key]: value };
     }, {});
+
     return {
       id: contestant.id,
       name: contestant.name,
@@ -58,5 +74,6 @@ export const contestantScoreTable = () => {
       ...scores,
     };
   });
+
   return { columns, body };
 };
