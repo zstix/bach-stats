@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import Mobile from 'is-mobile';
 
 import TopBar from './components/TopBar';
 import Controls from './components/Controls';
@@ -12,7 +13,7 @@ import { contestantScoreTable, getContestantDetails } from './utils';
 class App extends React.Component {
   state = {
     allContestants: false,
-    allWeeks: false, // TODO: screens
+    allWeeks: !Mobile(),
     details: false,
   };
 

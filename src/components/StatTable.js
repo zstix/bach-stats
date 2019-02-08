@@ -14,9 +14,6 @@ const styles = theme => ({
     marginTop: theme.spacing.unit * 3,
     overflowX: 'auto',
   },
-  table: {
-    minWidth: 700,
-  },
   image: {
     display: 'inline',
     marginRight: '1em',
@@ -34,13 +31,14 @@ const StatTable = ({
   onDetailsClick,
 }) => (
   <Paper className={classes.root}>
-    <Table className={classes.table}>
+    <Table>
       <TableHead>
         <TableRow>
           {columns.map(col => (
             <TableCell
               key={`h-${col.id}`}
               {...(col.id !== 1 ? { align: 'right' } : {})}
+              className={classes.nameCol}
             >
               {col.display}
             </TableCell>
