@@ -27,50 +27,53 @@ const styles = theme => ({
   },
 });
 
-const StatTable = (props) => {
-  const { classes, columns, body } = props;
-
-  return (
-    <Paper className={classes.root}>
-      <Table className={classes.table}>
-        <TableHead>
-          <TableRow>
+const StatTable = ({
+  classes,
+  columns,
+  body,
+  onDetailsClick,
+}) => (
+  <Paper className={classes.root}>
+    <Table className={classes.table}>
+      <TableHead>
+        <TableRow>
+          {columns.map(col => (
+            <TableCell
+              key={`h-${col.id}`}
+              {...(col.id !== 1 ? { align: 'right' } : {})}
+            >
+              {col.display}
+            </TableCell>
+          ))}
+        </TableRow>
+      </TableHead>
+      <TableBody>
+        {body.map(row => (
+          <TableRow key={`b-${row.id}`}>
             {columns.map(col => (
               <TableCell
-                key={`h-${col.id}`}
+                key={`b-${row.id}-c-${col.id}`}
                 {...(col.id !== 1 ? { align: 'right' } : {})}
+                onClick={col.key === 'name' ? () => onDetailsClick(row.id) : () => {}}
               >
-                {col.display}
+                {col.key === 'name' && (
+                  <img className={classes.image} src={row.image} />
+                )}
+                {row[col.key]}
               </TableCell>
             ))}
           </TableRow>
-        </TableHead>
-        <TableBody>
-          {body.map(row => (
-            <TableRow key={`b-${row.id}`}>
-              {columns.map(col => (
-                <TableCell
-                  key={`b-${row.id}-c-${col.id}`}
-                  {...(col.id !== 1 ? { align: 'right' } : {})}
-                >
-                  {col.key === 'name' && (
-                    <img className={classes.image} src={row.image} />
-                  )}
-                  {row[col.key]}
-                </TableCell>
-              ))}
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </Paper>
-  );
-};
+        ))}
+      </TableBody>
+    </Table>
+  </Paper>
+);
 
 StatTable.propTypes = {
   classes: PropTypes.object.isRequired,
   columns: PropTypes.arrayOf(PropTypes.object).isRequired,
   body: PropTypes.arrayOf(PropTypes.object).isRequired,
+  onDetailsClick: PropTypes.func,
 };
 
 export default withStyles(styles)(StatTable);

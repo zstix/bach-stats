@@ -6,15 +6,21 @@ import TopBar from './components/TopBar';
 import Controls from './components/Controls';
 import StatTable from './components/StatTable';
 
-import { contestantScoreTable } from './utils';
+import { contestantScoreTable, getContestantDetails } from './utils';
 
 class App extends React.Component {
   state = {
     onlyActive: true,
+    detailsOpen: false,
   };
 
   handleToggleActive = () => {
     this.setState({ onlyActive: !this.state.onlyActive });
+  };
+
+  handleDetailsClick = (id) => {
+    const contestant = getContestantDetails(id);
+    console.log('you clicked on', contestant);
   };
 
   render() {
@@ -29,7 +35,10 @@ class App extends React.Component {
           onlyActive={onlyActive}
           onToggleActive={this.handleToggleActive}
         />
-        <StatTable {...data} />
+        <StatTable
+          onDetailsClick={this.handleDetailsClick}
+          {...data}
+        />
       </React.Fragment>
     );
   }

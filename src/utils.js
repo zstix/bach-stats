@@ -28,6 +28,22 @@ const getActiveContestants = () => {
   }, []);
 };
 
+// get the contestant details and scores, in detail
+export const getContestantDetails = (id) => {
+  const weekDetails = weeks
+    .filter(week => week.scores.map(s => s.contestant).indexOf(id) > -1)
+    .map(week => ({
+      id: week.id,
+      date: week.date,
+      events: findContestantWeekEvents(week, id).map(getEventDetails),
+    }));
+
+  return {
+    ...getContestant(id),
+    weekDetails,
+  };
+};
+
 // table data to display ALL the contestant information
 export const contestantTable = () => {
   const columns = [
