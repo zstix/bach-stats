@@ -13,23 +13,23 @@ const styles = {
 
 const Controls = ({
   classes,
-  onlyActive,
-  onToggleActive,
+  showAll,
+  onToggleShowAll,
 }) => (
   <FormGroup row className={classes.root}>
     <FormControlLabel
       control={
-        <Switch checked={onlyActive} onChange={onToggleActive} />
+        <Switch checked={showAll} onChange={onToggleShowAll} />
       }
-      label="Active Only"
+      label="All Contestants"
     />
   </FormGroup>
 );
 
 Controls.propTypes = {
   classes: PropTypes.object.isRequired,
-  onlyActive: PropTypes.bool.isRequired,
-  onToggleActive: PropTypes.func.isRequired,
+  showAll: PropTypes.bool.isRequired,
+  onToggleShowAll: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(Controls);

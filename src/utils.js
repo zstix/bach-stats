@@ -58,7 +58,7 @@ export const contestantTable = () => {
 };
 
 // table data to display contestant scores, for all contestants or active ones
-export const contestantScoreTable = (onlyActive = true) => {
+export const contestantScoreTable = (showAll = false) => {
   const columns = weeks.reduce((cols, week) => ([
     ...cols,
     {
@@ -74,7 +74,7 @@ export const contestantScoreTable = (onlyActive = true) => {
     },
   ]);
 
-  const data = onlyActive ? getActiveContestants() : contestants;
+  const data = showAll ? contestants : getActiveContestants();
 
   const body = data.map((contestant) => {
     const scores = weeks.reduce((s, week) => {

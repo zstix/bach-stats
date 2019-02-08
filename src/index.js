@@ -11,12 +11,12 @@ import { contestantScoreTable, getContestantDetails } from './utils';
 
 class App extends React.Component {
   state = {
-    onlyActive: true,
+    showAll: false,
     details: false,
   };
 
-  handleToggleActive() {
-    this.setState({ onlyActive: !this.state.onlyActive });
+  handleShowAllToggle() {
+    this.setState({ showAll: !this.state.showAll });
   };
 
   handleCloseDetails() {
@@ -28,16 +28,16 @@ class App extends React.Component {
   };
 
   render() {
-    const { onlyActive, details } = this.state;
-    const data = contestantScoreTable(onlyActive);
+    const { showAll, details } = this.state;
+    const data = contestantScoreTable(showAll);
 
     return (
       <React.Fragment>
         <CssBaseline />
         <TopBar />
         <Controls
-          onlyActive={onlyActive}
-          onToggleActive={() => this.handleToggleActive()}
+          showAll={showAll}
+          onToggleShowAll={() => this.handleShowAllToggle()}
         />
         <StatTable
           onDetailsClick={this.handleDetailsClick}
