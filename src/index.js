@@ -5,13 +5,15 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import TopBar from './components/TopBar';
 import StatTable from './components/StatTable';
 
-import { contestantTable } from './utils';
+import { contestantScoreTable } from './utils';
+
+console.log(contestantScoreTable());
 
 const App = () => (
   <React.Fragment>
     <CssBaseline />
     <TopBar />
-    <StatTable {...contestantTable()} />
+    <StatTable {...contestantScoreTable()} />
   </React.Fragment>
 );
 
