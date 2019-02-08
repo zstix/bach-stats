@@ -10,9 +10,6 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
 const styles = {
-  root: {
-    minWidth: 400,
-  },
   image: {
     width: '4.5em',
     height: '4.5em',
@@ -38,7 +35,7 @@ const Details = ({
       >
         <DialogTitle id="details-title">{contestant.name}</DialogTitle>
         <DialogContent>
-          <DialogContentText className={classes.root}>
+          <DialogContentText>
             <img className={classes.image} src={contestant.image} />
             <b>Age: </b>
             <span>{contestant.age}</span>
@@ -52,12 +49,12 @@ const Details = ({
             <br />
 
             {contestant.weekDetails.map(week => (
-              <React.Fragment>
+              <React.Fragment key={`d-w-${week.id}`}>
                 <Typography component="span" variant="h6">
                   {`Week ${week.id}: ${week.date}`}
                 </Typography>
                 {week.events.sort((a, b) => a.value - b.value).map(event => (
-                  <React.Fragment>
+                  <React.Fragment key={`d-w-${week.id}-e-${event.id}`}>
                     <b>
                       {event.value}
                       {' '}
