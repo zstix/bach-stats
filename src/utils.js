@@ -65,7 +65,7 @@ export const contestantScoreTable = (allContestants = false, allWeeks = true) =>
   const getWeekHeader = week => ({
     id: week.id + 1,
     key: `${week.id}_score`,
-    display: week.date,
+    display: `Week ${week.id}`,
   });
 
   const columns = !allWeeks
