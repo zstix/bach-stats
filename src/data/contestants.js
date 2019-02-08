@@ -17,7 +17,7 @@ export default [
   },
   {
     id: 3,
-    name: 'Alex D',
+    name: 'Alex D.',
     age: 23,
     location: 'Boston, Massachusets',
     occupation: 'Sloth',
@@ -129,7 +129,7 @@ export default [
   },
   {
     id: 18,
-    name: 'Hannah B',
+    name: 'Hannah B.',
     age: 23,
     location: 'Tuscaloosa, Alabama',
     occupation: 'Miss Alabama 2018',
@@ -137,7 +137,7 @@ export default [
   },
   {
     id: 19,
-    name: 'Hannah G',
+    name: 'Hannah G.',
     age: 23,
     location: 'Birmingham, Alabama',
     occupation: 'Content Creator',

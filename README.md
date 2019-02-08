@@ -11,8 +11,8 @@ Don't judge me for my poor taste or ineffecient use of loops.
 - [x] Abstraction method for StatTable
 - [x] Make weekly contestant scores table
 - [x] App state: filtering (eliminated)
-- [ ] App state: view details
-- [ ] Contestant details (modal?)
+- [x] App state: view details
+- [x] Contestant details (modal?)
 - [ ] Deployment
 
 ### Nice to Haves

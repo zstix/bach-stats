@@ -5,26 +5,30 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import TopBar from './components/TopBar';
 import Controls from './components/Controls';
 import StatTable from './components/StatTable';
+import Details from './components/Details';
 
 import { contestantScoreTable, getContestantDetails } from './utils';
 
 class App extends React.Component {
   state = {
     onlyActive: true,
-    detailsOpen: false,
+    details: false,
   };
 
-  handleToggleActive = () => {
+  handleToggleActive() {
     this.setState({ onlyActive: !this.state.onlyActive });
   };
 
+  handleCloseDetails() {
+    this.setState({ details: false });
+  }
+
   handleDetailsClick = (id) => {
-    const contestant = getContestantDetails(id);
-    console.log('you clicked on', contestant);
+    this.setState({ details: getContestantDetails(id) });
   };
 
   render() {
-    const { onlyActive } = this.state;
+    const { onlyActive, details } = this.state;
     const data = contestantScoreTable(onlyActive);
 
     return (
@@ -33,11 +37,16 @@ class App extends React.Component {
         <TopBar />
         <Controls
           onlyActive={onlyActive}
-          onToggleActive={this.handleToggleActive}
+          onToggleActive={() => this.handleToggleActive()}
         />
         <StatTable
           onDetailsClick={this.handleDetailsClick}
           {...data}
+        />
+        <Details
+          open={Boolean(details)}
+          onCloseClick={() => this.handleCloseDetails()}
+          contestant={details}
         />
       </React.Fragment>
     );

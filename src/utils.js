@@ -36,7 +36,8 @@ export const getContestantDetails = (id) => {
       id: week.id,
       date: week.date,
       events: findContestantWeekEvents(week, id).map(getEventDetails),
-    }));
+    }))
+    .reverse();
 
   return {
     ...getContestant(id),
