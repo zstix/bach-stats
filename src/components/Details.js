@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+
+import DetailsWeek from './DetailsWeek';
 
 const styles = {
   image: {
@@ -49,22 +50,7 @@ const Details = ({
             <br />
 
             {contestant.weekDetails.map(week => (
-              <React.Fragment key={`d-w-${week.id}`}>
-                <Typography component="span" variant="h6">
-                  {`Week ${week.id}: ${week.date}`}
-                </Typography>
-                {week.events.sort((a, b) => a.value - b.value).map(event => (
-                  <React.Fragment key={`d-w-${week.id}-e-${event.id}`}>
-                    <b>
-                      {event.value}
-                      {' '}
-                    </b>
-                    <span>{event.name}</span>
-                    <br />
-                  </React.Fragment>
-                ))}
-                <br />
-              </React.Fragment>
+              <DetailsWeek key={`d-w-${week.id}`} {...week} />
             ))}
           </DialogContentText>
         </DialogContent>

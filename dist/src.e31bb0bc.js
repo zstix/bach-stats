@@ -42496,7 +42496,53 @@ Object.defineProperty(exports, "default", {
 });
 
 var _DialogTitle = _interopRequireDefault(require("./DialogTitle"));
-},{"@babel/runtime/helpers/interopRequireDefault":"../node_modules/@babel/runtime/helpers/interopRequireDefault.js","./DialogTitle":"../node_modules/@material-ui/core/DialogTitle/DialogTitle.js"}],"components/Details.js":[function(require,module,exports) {
+},{"@babel/runtime/helpers/interopRequireDefault":"../node_modules/@babel/runtime/helpers/interopRequireDefault.js","./DialogTitle":"../node_modules/@material-ui/core/DialogTitle/DialogTitle.js"}],"components/DetailsWeek.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
+var _Typography = _interopRequireDefault(require("@material-ui/core/Typography"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// given an array of event details, get the total
+var calcEventTotals = function calcEventTotals(events) {
+  return events.map(function (e) {
+    return e.value;
+  }).reduce(function (score, value) {
+    return value + score;
+  }, 0);
+};
+
+var DetailsWeek = function DetailsWeek(_ref) {
+  var id = _ref.id,
+      events = _ref.events;
+  return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_Typography.default, {
+    component: "span",
+    variant: "h6"
+  }, "Week ".concat(id, ": ").concat(calcEventTotals(events))), events.sort(function (a, b) {
+    return a.value - b.value;
+  }).map(function (event) {
+    return _react.default.createElement(_react.default.Fragment, {
+      key: "d-w-".concat(id, "-e-").concat(event.id)
+    }, _react.default.createElement("b", null, event.value, ' '), _react.default.createElement("span", null, event.name), _react.default.createElement("br", null));
+  }), _react.default.createElement("br", null));
+};
+
+DetailsWeek.propTypes = {
+  id: _propTypes.default.number.isRequired,
+  events: _propTypes.default.array.isRequired
+};
+var _default = DetailsWeek;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","@material-ui/core/Typography":"../node_modules/@material-ui/core/Typography/index.js"}],"components/Details.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -42510,8 +42556,6 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _styles = require("@material-ui/core/styles");
 
-var _Typography = _interopRequireDefault(require("@material-ui/core/Typography"));
-
 var _Button = _interopRequireDefault(require("@material-ui/core/Button"));
 
 var _Dialog = _interopRequireDefault(require("@material-ui/core/Dialog"));
@@ -42523,6 +42567,10 @@ var _DialogContent = _interopRequireDefault(require("@material-ui/core/DialogCon
 var _DialogContentText = _interopRequireDefault(require("@material-ui/core/DialogContentText"));
 
 var _DialogTitle = _interopRequireDefault(require("@material-ui/core/DialogTitle"));
+
+var _DetailsWeek = _interopRequireDefault(require("./DetailsWeek"));
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -42552,18 +42600,9 @@ var Details = function Details(_ref) {
     className: classes.image,
     src: contestant.image
   }), _react.default.createElement("b", null, "Age: "), _react.default.createElement("span", null, contestant.age), _react.default.createElement("br", null), _react.default.createElement("b", null, "Location: "), _react.default.createElement("span", null, contestant.location), _react.default.createElement("br", null), _react.default.createElement("b", null, "Occupation: "), _react.default.createElement("span", null, contestant.occupation), _react.default.createElement("br", null), _react.default.createElement("br", null), contestant.weekDetails.map(function (week) {
-    return _react.default.createElement(_react.default.Fragment, {
+    return _react.default.createElement(_DetailsWeek.default, _extends({
       key: "d-w-".concat(week.id)
-    }, _react.default.createElement(_Typography.default, {
-      component: "span",
-      variant: "h6"
-    }, "Week ".concat(week.id, ": ").concat(week.date)), week.events.sort(function (a, b) {
-      return a.value - b.value;
-    }).map(function (event) {
-      return _react.default.createElement(_react.default.Fragment, {
-        key: "d-w-".concat(week.id, "-e-").concat(event.id)
-      }, _react.default.createElement("b", null, event.value, ' '), _react.default.createElement("span", null, event.name), _react.default.createElement("br", null));
-    }), _react.default.createElement("br", null));
+    }, week));
   }))), _react.default.createElement(_DialogActions.default, null, _react.default.createElement(_Button.default, {
     onClick: onCloseClick,
     color: "primary"
@@ -42580,7 +42619,7 @@ Details.propTypes = {
 var _default = (0, _styles.withStyles)(styles)(Details);
 
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","@material-ui/core/styles":"../node_modules/@material-ui/core/styles/index.js","@material-ui/core/Typography":"../node_modules/@material-ui/core/Typography/index.js","@material-ui/core/Button":"../node_modules/@material-ui/core/Button/index.js","@material-ui/core/Dialog":"../node_modules/@material-ui/core/Dialog/index.js","@material-ui/core/DialogActions":"../node_modules/@material-ui/core/DialogActions/index.js","@material-ui/core/DialogContent":"../node_modules/@material-ui/core/DialogContent/index.js","@material-ui/core/DialogContentText":"../node_modules/@material-ui/core/DialogContentText/index.js","@material-ui/core/DialogTitle":"../node_modules/@material-ui/core/DialogTitle/index.js"}],"data/weeks.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","@material-ui/core/styles":"../node_modules/@material-ui/core/styles/index.js","@material-ui/core/Button":"../node_modules/@material-ui/core/Button/index.js","@material-ui/core/Dialog":"../node_modules/@material-ui/core/Dialog/index.js","@material-ui/core/DialogActions":"../node_modules/@material-ui/core/DialogActions/index.js","@material-ui/core/DialogContent":"../node_modules/@material-ui/core/DialogContent/index.js","@material-ui/core/DialogContentText":"../node_modules/@material-ui/core/DialogContentText/index.js","@material-ui/core/DialogTitle":"../node_modules/@material-ui/core/DialogTitle/index.js","./DetailsWeek":"components/DetailsWeek.js"}],"data/weeks.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -43466,7 +43505,7 @@ var contestantScoreTable = function contestantScoreTable() {
     return {
       id: week.id + 1,
       key: "".concat(week.id, "_score"),
-      display: week.date
+      display: "Week ".concat(week.id)
     };
   };
 
@@ -43650,7 +43689,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65013" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51512" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
