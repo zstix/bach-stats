@@ -28,29 +28,37 @@ const styles = theme => ({
 });
 
 const StatTable = (props) => {
-  const { classes, data } = props;
+  const { classes, columns, body } = props;
 
   return (
     <Paper className={classes.root}>
       <Table className={classes.table}>
         <TableHead>
           <TableRow>
-            <TableCell>Name</TableCell>
-            <TableCell align="right">Age</TableCell>
-            <TableCell align="right">Location</TableCell>
-            <TableCell align="right">Occupation</TableCell>
+            {columns.map(col => (
+              <TableCell
+                key={`h-${col.id}`}
+                {...(col.id !== 1 ? { align: 'right' } : {})}
+              >
+                {col.display}
+              </TableCell>
+            ))}
           </TableRow>
         </TableHead>
         <TableBody>
-          {data.map(row => (
-            <TableRow key={row.id}>
-              <TableCell component="th" scope="row">
-                <img className={classes.image} src={row.image} />
-                {row.name}
-              </TableCell>
-              <TableCell align="right">{row.age}</TableCell>
-              <TableCell align="right">{row.location}</TableCell>
-              <TableCell align="right">{row.occupation}</TableCell>
+          {body.map(row => (
+            <TableRow key={`b-${row.id}`}>
+              {columns.map(col => (
+                <TableCell
+                  key={`b-${row.id}-c-${col.id}`}
+                  {...(col.id !== 1 ? { align: 'right' } : {})}
+                >
+                  {col.key === 'name' && (
+                    <img className={classes.image} src={row.image} />
+                  )}
+                  {row[col.key]}
+                </TableCell>
+              ))}
             </TableRow>
           ))}
         </TableBody>
@@ -61,7 +69,8 @@ const StatTable = (props) => {
 
 StatTable.propTypes = {
   classes: PropTypes.object.isRequired,
-  data: PropTypes.array.isRequired,
+  columns: PropTypes.arrayOf(PropTypes.object).isRequired,
+  body: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default withStyles(styles)(StatTable);
