@@ -13,23 +13,29 @@ const styles = {
 
 const Controls = ({
   classes,
-  showAll,
-  onToggleShowAll,
+  allContestants,
+  onContestantToggle,
 }) => (
   <FormGroup row className={classes.root}>
     <FormControlLabel
       control={
-        <Switch checked={showAll} onChange={onToggleShowAll} />
+        <Switch checked={allContestants} onChange={onContestantToggle} />
       }
       label="All Contestants"
+    />
+    <FormControlLabel
+      control={
+        <Switch checked={false} onChange={onContestantToggle} />
+      }
+      label="All Weeks"
     />
   </FormGroup>
 );
 
 Controls.propTypes = {
   classes: PropTypes.object.isRequired,
-  showAll: PropTypes.bool.isRequired,
-  onToggleShowAll: PropTypes.func.isRequired,
+  allContestants: PropTypes.bool.isRequired,
+  onContestantToggle: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(Controls);
