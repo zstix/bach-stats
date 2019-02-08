@@ -10,19 +10,36 @@ import Details from './components/Details';
 
 import { contestantScoreTable, getContestantDetails } from './utils';
 
+const getTableData = (allContestants, allWeeks) => {
+	return contestantScoreTable(allContestants, allWeeks);
+};
+
 class App extends React.Component {
-  state = {
-    allContestants: false,
-    allWeeks: !Mobile(),
-    details: false,
-  };
+	constructor() {
+		super();
+
+		const allContestants = false;
+		const allWeeks = !Mobile();
+		const tableData = getTableData(allContestants, allWeeks);
+
+		this.state = {
+			allContestants,
+			allWeeks,
+			tableData,
+			details: false,
+		};
+	};
 
   toggleContestants() {
-    this.setState({ allContestants: !this.state.allContestants });
+		const allContestants = !this.state.allContestants;
+		const tableData = getTableData(allContestants, this.state.allWeeks);
+    this.setState({ allContestants, tableData });
   };
 
   toggleWeeks() {
-    this.setState({ allWeeks: !this.state.allWeeks });
+		const allWeeks = !this.state.allWeeks;
+		const tableData = getTableData(this.state.allContestants, allWeeks);
+    this.setState({ allWeeks, tableData });
   };
 
   handleCloseDetails() {
@@ -34,8 +51,7 @@ class App extends React.Component {
   };
 
   render() {
-    const { allContestants, allWeeks, details } = this.state;
-    const data = contestantScoreTable(allContestants, allWeeks);
+    const { allContestants, allWeeks, details, tableData } = this.state;
 
     return (
       <React.Fragment>
@@ -49,7 +65,7 @@ class App extends React.Component {
         />
         <StatTable
           onDetailsClick={this.handleDetailsClick}
-          {...data}
+          {...tableData}
         />
         <Details
           open={Boolean(details)}
