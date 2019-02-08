@@ -14,6 +14,9 @@ const styles = theme => ({
     marginTop: theme.spacing.unit * 3,
     overflowX: 'auto',
   },
+  row: {
+    cursor: 'pointer',
+  },
   image: {
     display: 'inline',
     marginRight: '1em',
@@ -47,12 +50,16 @@ const StatTable = ({
       </TableHead>
       <TableBody>
         {body.map(row => (
-          <TableRow key={`b-${row.id}`}>
+          <TableRow
+            key={`b-${row.id}`}
+            className={classes.row}
+            onClick={() => onDetailsClick(row.id)}
+            hover
+          >
             {columns.map(col => (
               <TableCell
                 key={`b-${row.id}-c-${col.id}`}
                 {...(col.id !== 1 ? { align: 'right' } : {})}
-                onClick={col.key === 'name' ? () => onDetailsClick(row.id) : () => {}}
               >
                 {col.key === 'name' && (
                   <img className={classes.image} src={row.image} />

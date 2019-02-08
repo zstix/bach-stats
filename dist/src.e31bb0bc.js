@@ -39271,6 +39271,9 @@ var styles = function styles(theme) {
       marginTop: theme.spacing.unit * 3,
       overflowX: 'auto'
     },
+    row: {
+      cursor: 'pointer'
+    },
     image: {
       display: 'inline',
       marginRight: '1em',
@@ -39299,17 +39302,18 @@ var StatTable = function StatTable(_ref) {
     }), col.display);
   }))), _react.default.createElement(_TableBody.default, null, body.map(function (row) {
     return _react.default.createElement(_TableRow.default, {
-      key: "b-".concat(row.id)
+      key: "b-".concat(row.id),
+      className: classes.row,
+      onClick: function onClick() {
+        return onDetailsClick(row.id);
+      },
+      hover: true
     }, columns.map(function (col) {
       return _react.default.createElement(_TableCell.default, _extends({
         key: "b-".concat(row.id, "-c-").concat(col.id)
       }, col.id !== 1 ? {
         align: 'right'
-      } : {}, {
-        onClick: col.key === 'name' ? function () {
-          return onDetailsClick(row.id);
-        } : function () {}
-      }), col.key === 'name' && _react.default.createElement("img", {
+      } : {}), col.key === 'name' && _react.default.createElement("img", {
         className: classes.image,
         src: row.image
       }), row[col.key]);
@@ -43700,7 +43704,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55675" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58884" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
