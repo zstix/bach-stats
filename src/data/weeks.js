@@ -70,9 +70,9 @@ export default [
     scores: [
       { contestant: 6, events: [0] },
       { contestant: 7, events: [21, 23, 32, 50, 22] },
-      { contestant: 8, events: [21, 59] },
+      { contestant: 8, events: [21, 59, 0] },
       { contestant: 9, events: [21, 22] },
-      { contestant: 10, events: [21, 41] },
+      { contestant: 10, events: [21, 41, 10] },
       { contestant: 11, events: [21, 22] },
       { contestant: 12, events: [21, 24, 22] },
       { contestant: 14, events: [6, 21, 23, 33, 22] },
@@ -82,7 +82,7 @@ export default [
       { contestant: 21, events: [21, 22] },
       { contestant: 22, events: [21, 41, 22] },
       { contestant: 24, events: [21, 22, 23, 50] },
-      { contestant: 25, events: [21] },
+      { contestant: 25, events: [21, 0] },
       { contestant: 26, events: [21, 24, 32, 41, 22] },
       { contestant: 28, events: [21, 39, 22] },
       { contestant: 30, events: [21, 22] },
@@ -95,7 +95,7 @@ export default [
     scores: [
       { contestant: 7, events: [21, 22, 23, 37, 41] },
       { contestant: 9, events: [21, 22, 24, 34, 50] },
-      { contestant: 11, events: [21, 34, 42, 50] },
+      { contestant: 11, events: [21, 34, 42, 50, 0] },
       { contestant: 12, events: [21, 22, 23, 34, 40, 51] },
       { contestant: 14, events: [21, 22, 34, 41] },
       { contestant: 18, events: [21, 22, 24, 34] },
@@ -107,7 +107,7 @@ export default [
       { contestant: 26, events: [21, 22, 34, 24, 49] },
       { contestant: 28, events: [21, 22, 34, 41] },
       { contestant: 30, events: [21, 22, 23, 37] },
-      { contestant: 31, events: [21, 34] },
+      { contestant: 31, events: [21, 34, 0] },
     ],
   },
 ];
