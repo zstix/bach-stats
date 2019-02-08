@@ -43577,47 +43577,58 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
+var getTableData = function getTableData(allContestants, allWeeks) {
+  return (0, _utils.contestantScoreTable)(allContestants, allWeeks);
+};
+
 var App =
 /*#__PURE__*/
 function (_React$Component) {
   _inherits(App, _React$Component);
 
   function App() {
-    var _getPrototypeOf2;
-
     var _this;
-
-    var _temp;
 
     _classCallCheck(this, App);
 
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(App).call(this));
 
-    return _possibleConstructorReturn(_this, (_temp = _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(App)).call.apply(_getPrototypeOf2, [this].concat(args))), _this.state = {
-      allContestants: false,
-      allWeeks: !(0, _isMobile.default)(),
-      details: false
-    }, _this.handleDetailsClick = function (id) {
+    _this.handleDetailsClick = function (id) {
       _this.setState({
         details: (0, _utils.getContestantDetails)(id)
       });
-    }, _temp));
+    };
+
+    var allContestants = false;
+    var allWeeks = !(0, _isMobile.default)();
+    var tableData = getTableData(allContestants, allWeeks);
+    _this.state = {
+      allContestants: allContestants,
+      allWeeks: allWeeks,
+      tableData: tableData,
+      details: false
+    };
+    return _this;
   }
 
   _createClass(App, [{
     key: "toggleContestants",
     value: function toggleContestants() {
+      var allContestants = !this.state.allContestants;
+      var tableData = getTableData(allContestants, this.state.allWeeks);
       this.setState({
-        allContestants: !this.state.allContestants
+        allContestants: allContestants,
+        tableData: tableData
       });
     }
   }, {
     key: "toggleWeeks",
     value: function toggleWeeks() {
+      var allWeeks = !this.state.allWeeks;
+      var tableData = getTableData(this.state.allContestants, allWeeks);
       this.setState({
-        allWeeks: !this.state.allWeeks
+        allWeeks: allWeeks,
+        tableData: tableData
       });
     }
   }, {
@@ -43635,8 +43646,8 @@ function (_React$Component) {
       var _this$state = this.state,
           allContestants = _this$state.allContestants,
           allWeeks = _this$state.allWeeks,
-          details = _this$state.details;
-      var data = (0, _utils.contestantScoreTable)(allContestants, allWeeks);
+          details = _this$state.details,
+          tableData = _this$state.tableData;
       return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_CssBaseline.default, null), _react.default.createElement(_TopBar.default, null), _react.default.createElement(_Controls.default, {
         allContestants: allContestants,
         onContestantsToggle: function onContestantsToggle() {
@@ -43648,7 +43659,7 @@ function (_React$Component) {
         }
       }), _react.default.createElement(_StatTable.default, _extends({
         onDetailsClick: this.handleDetailsClick
-      }, data)), _react.default.createElement(_Details.default, {
+      }, tableData)), _react.default.createElement(_Details.default, {
         open: Boolean(details),
         onCloseClick: function onCloseClick() {
           return _this2.handleCloseDetails();
@@ -43689,7 +43700,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51512" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51243" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
