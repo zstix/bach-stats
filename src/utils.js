@@ -58,23 +58,21 @@ export const contestantTable = () => {
 };
 
 // table data to display contestant scores, for all contestants or active ones
-export const contestantScoreTable = (showAll = false) => {
-  const columns = weeks.reduce((cols, week) => ([
-    ...cols,
-    {
-      id: week.id + 1,
-      key: `${week.id}_score`,
-      display: week.date,
-    },
-  ]), [
-    {
-      id: 1,
-      key: 'name',
-      display: 'Name',
-    },
-  ]);
+export const contestantScoreTable = (allContestants = false, allWeeks = true) => {
+  const nameHeader = { id: 1, key: 'name', display: 'Name' };
+  const lastWeek = weeks[weeks.length - 1];
 
-  const data = showAll ? contestants : getActiveContestants();
+  const getWeekHeader = week => ({
+    id: week.id + 1,
+    key: `${week.id}_score`,
+    display: week.date,
+  });
+
+  const columns = !allWeeks
+    ? [nameHeader, getWeekHeader(lastWeek)]
+    : weeks.reduce((cols, week) => [...cols, getWeekHeader(week)], [nameHeader]);
+
+  const data = allContestants ? contestants : getActiveContestants();
 
   const body = data.map((contestant) => {
     const scores = weeks.reduce((s, week) => {

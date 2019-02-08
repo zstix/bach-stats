@@ -20,6 +20,10 @@ class App extends React.Component {
     this.setState({ allContestants: !this.state.allContestants });
   };
 
+  toggleWeeks() {
+    this.setState({ allWeeks: !this.state.allWeeks });
+  };
+
   handleCloseDetails() {
     this.setState({ details: false });
   }
@@ -29,8 +33,8 @@ class App extends React.Component {
   };
 
   render() {
-    const { allContestants, details } = this.state;
-    const data = contestantScoreTable(allContestants);
+    const { allContestants, allWeeks, details } = this.state;
+    const data = contestantScoreTable(allContestants, allWeeks);
 
     return (
       <React.Fragment>
@@ -38,7 +42,9 @@ class App extends React.Component {
         <TopBar />
         <Controls
           allContestants={allContestants}
-          onContestantToggle={() => this.toggleContestants()}
+          onContestantsToggle={() => this.toggleContestants()}
+          allWeeks={allWeeks}
+          onWeeksToggle={() => this.toggleWeeks()}
         />
         <StatTable
           onDetailsClick={this.handleDetailsClick}

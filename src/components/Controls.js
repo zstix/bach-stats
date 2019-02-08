@@ -14,18 +14,20 @@ const styles = {
 const Controls = ({
   classes,
   allContestants,
-  onContestantToggle,
+  allWeeks,
+  onContestantsToggle,
+  onWeeksToggle,
 }) => (
   <FormGroup row className={classes.root}>
     <FormControlLabel
       control={
-        <Switch checked={allContestants} onChange={onContestantToggle} />
+        <Switch checked={allContestants} onChange={onContestantsToggle} />
       }
       label="All Contestants"
     />
     <FormControlLabel
       control={
-        <Switch checked={false} onChange={onContestantToggle} />
+        <Switch checked={allWeeks} onChange={onWeeksToggle} />
       }
       label="All Weeks"
     />
@@ -35,7 +37,9 @@ const Controls = ({
 Controls.propTypes = {
   classes: PropTypes.object.isRequired,
   allContestants: PropTypes.bool.isRequired,
-  onContestantToggle: PropTypes.func.isRequired,
+  allWeeks: PropTypes.bool.isRequired,
+  onContestantsToggle: PropTypes.func.isRequired,
+  onWeeksToggle: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(Controls);
