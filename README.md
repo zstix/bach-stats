@@ -13,7 +13,7 @@ Don't judge me for my poor taste or ineffecient use of loops.
 - [x] App state: filtering (eliminated)
 - [x] App state: view details
 - [x] Contestant details (modal?)
-- [ ] Deployment
+- [x] Deployment
 
 ### Nice to Haves
 - [ ] App state: sorting (name, score)
