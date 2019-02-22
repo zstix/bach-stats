@@ -43541,7 +43541,7 @@ exports.contestantScoreTable = contestantScoreTable;
 },{"./data/weeks":"data/weeks.js","./data/contestants":"data/contestants.js","./data/events":"data/events.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
-var _react = _interopRequireDefault(require("react"));
+var _react = _interopRequireWildcard(require("react"));
 
 var _reactDom = _interopRequireDefault(require("react-dom"));
 
@@ -43563,118 +43563,58 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
 
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var getTableData = function getTableData(allContestants, allWeeks) {
   return (0, _utils.contestantScoreTable)(allContestants, allWeeks);
 };
 
-var App =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(App, _React$Component);
+var App = function App() {
+  var _useState = (0, _react.useState)(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      allContestants = _useState2[0],
+      setContestants = _useState2[1];
 
-  function App() {
-    var _this;
+  var _useState3 = (0, _react.useState)(!(0, _isMobile.default)()),
+      _useState4 = _slicedToArray(_useState3, 2),
+      allWeeks = _useState4[0],
+      setWeeks = _useState4[1];
 
-    _classCallCheck(this, App);
+  var _useState5 = (0, _react.useState)(false),
+      _useState6 = _slicedToArray(_useState5, 2),
+      details = _useState6[0],
+      setDetails = _useState6[1];
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(App).call(this));
-
-    _this.handleDetailsClick = function (id) {
-      _this.setState({
-        details: (0, _utils.getContestantDetails)(id)
-      });
-    };
-
-    var allContestants = false;
-    var allWeeks = !(0, _isMobile.default)();
-    var tableData = getTableData(allContestants, allWeeks);
-    _this.state = {
-      allContestants: allContestants,
-      allWeeks: allWeeks,
-      tableData: tableData,
-      details: false
-    };
-    return _this;
-  }
-
-  _createClass(App, [{
-    key: "toggleContestants",
-    value: function toggleContestants() {
-      var allContestants = !this.state.allContestants;
-      var tableData = getTableData(allContestants, this.state.allWeeks);
-      this.setState({
-        allContestants: allContestants,
-        tableData: tableData
-      });
+  var tableData = getTableData(allContestants, allWeeks);
+  return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_CssBaseline.default, null), _react.default.createElement(_TopBar.default, null), _react.default.createElement(_Controls.default, {
+    allContestants: allContestants,
+    onContestantsToggle: function onContestantsToggle() {
+      return setContestants(!allContestants);
+    },
+    allWeeks: allWeeks,
+    onWeeksToggle: function onWeeksToggle() {
+      return setWeeks(!allWeeks);
     }
-  }, {
-    key: "toggleWeeks",
-    value: function toggleWeeks() {
-      var allWeeks = !this.state.allWeeks;
-      var tableData = getTableData(this.state.allContestants, allWeeks);
-      this.setState({
-        allWeeks: allWeeks,
-        tableData: tableData
-      });
+  }), _react.default.createElement(_StatTable.default, _extends({
+    onDetailsClick: function onDetailsClick(id) {
+      return setDetails((0, _utils.getContestantDetails)(id));
     }
-  }, {
-    key: "handleCloseDetails",
-    value: function handleCloseDetails() {
-      this.setState({
-        details: false
-      });
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this2 = this;
-
-      var _this$state = this.state,
-          allContestants = _this$state.allContestants,
-          allWeeks = _this$state.allWeeks,
-          details = _this$state.details,
-          tableData = _this$state.tableData;
-      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_CssBaseline.default, null), _react.default.createElement(_TopBar.default, null), _react.default.createElement(_Controls.default, {
-        allContestants: allContestants,
-        onContestantsToggle: function onContestantsToggle() {
-          return _this2.toggleContestants();
-        },
-        allWeeks: allWeeks,
-        onWeeksToggle: function onWeeksToggle() {
-          return _this2.toggleWeeks();
-        }
-      }), _react.default.createElement(_StatTable.default, _extends({
-        onDetailsClick: this.handleDetailsClick
-      }, tableData)), _react.default.createElement(_Details.default, {
-        open: Boolean(details),
-        onCloseClick: function onCloseClick() {
-          return _this2.handleCloseDetails();
-        },
-        contestant: details
-      }));
-    }
-  }]);
-
-  return App;
-}(_react.default.Component);
+  }, tableData)), _react.default.createElement(_Details.default, {
+    open: Boolean(details),
+    onCloseClick: function onCloseClick() {
+      return setDetails(false);
+    },
+    contestant: details
+  }));
+};
 
 _reactDom.default.render(_react.default.createElement(App, null), document.getElementById('app'));
 },{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","@material-ui/core/CssBaseline":"../node_modules/@material-ui/core/CssBaseline/index.js","is-mobile":"../node_modules/is-mobile/index.js","./components/TopBar":"components/TopBar.js","./components/Controls":"components/Controls.js","./components/StatTable":"components/StatTable.js","./components/Details":"components/Details.js","./utils":"utils.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
@@ -43704,7 +43644,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58884" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "33355" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

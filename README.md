@@ -16,6 +16,8 @@ Don't judge me for my poor taste or ineffecient use of loops.
 - [x] Deployment
 
 ### Nice to Haves
+- [x] React hooks
+- [ ] Type checking
 - [ ] App state: sorting (name, score)
 - [ ] Other table options
 - [ ] Graphs
