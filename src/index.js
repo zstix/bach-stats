@@ -1,57 +1,57 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Mobile from 'is-mobile';
+import React from "react"
+import ReactDOM from "react-dom"
+import CssBaseline from "@material-ui/core/CssBaseline"
+import Mobile from "is-mobile"
 
-import TopBar from './components/TopBar';
-import Controls from './components/Controls';
-import StatTable from './components/StatTable';
-import Details from './components/Details';
+import TopBar from "./components/TopBar"
+import Controls from "./components/Controls"
+import StatTable from "./components/StatTable"
+import Details from "./components/Details"
 
-import { contestantScoreTable, getContestantDetails } from './utils';
+import { contestantScoreTable, getContestantDetails } from "./utils"
 
 const getTableData = (allContestants, allWeeks) => {
-	return contestantScoreTable(allContestants, allWeeks);
-};
+  return contestantScoreTable(allContestants, allWeeks)
+}
 
 class App extends React.Component {
-	constructor() {
-		super();
+  constructor() {
+    super()
 
-		const allContestants = false;
-		const allWeeks = !Mobile();
-		const tableData = getTableData(allContestants, allWeeks);
+    const allContestants = false
+    const allWeeks = !Mobile()
+    const tableData = getTableData(allContestants, allWeeks)
 
-		this.state = {
-			allContestants,
-			allWeeks,
-			tableData,
-			details: false,
-		};
-	};
-
-  toggleContestants() {
-		const allContestants = !this.state.allContestants;
-		const tableData = getTableData(allContestants, this.state.allWeeks);
-    this.setState({ allContestants, tableData });
-  };
-
-  toggleWeeks() {
-		const allWeeks = !this.state.allWeeks;
-		const tableData = getTableData(this.state.allContestants, allWeeks);
-    this.setState({ allWeeks, tableData });
-  };
-
-  handleCloseDetails() {
-    this.setState({ details: false });
+    this.state = {
+      allContestants,
+      allWeeks,
+      tableData,
+      details: false,
+    }
   }
 
-  handleDetailsClick = (id) => {
-    this.setState({ details: getContestantDetails(id) });
-  };
+  toggleContestants() {
+    const allContestants = !this.state.allContestants
+    const tableData = getTableData(allContestants, this.state.allWeeks)
+    this.setState({ allContestants, tableData })
+  }
+
+  toggleWeeks() {
+    const allWeeks = !this.state.allWeeks
+    const tableData = getTableData(this.state.allContestants, allWeeks)
+    this.setState({ allWeeks, tableData })
+  }
+
+  handleCloseDetails() {
+    this.setState({ details: false })
+  }
+
+  handleDetailsClick = id => {
+    this.setState({ details: getContestantDetails(id) })
+  }
 
   render() {
-    const { allContestants, allWeeks, details, tableData } = this.state;
+    const { allContestants, allWeeks, details, tableData } = this.state
 
     return (
       <React.Fragment>
@@ -63,18 +63,15 @@ class App extends React.Component {
           allWeeks={allWeeks}
           onWeeksToggle={() => this.toggleWeeks()}
         />
-        <StatTable
-          onDetailsClick={this.handleDetailsClick}
-          {...tableData}
-        />
+        <StatTable onDetailsClick={this.handleDetailsClick} {...tableData} />
         <Details
           open={Boolean(details)}
           onCloseClick={() => this.handleCloseDetails()}
           contestant={details}
         />
       </React.Fragment>
-    );
+    )
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById("app"))
