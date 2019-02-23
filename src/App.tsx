@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Mobile from 'is-mobile';
 
-import TopBar from './components/TopBar';
+import TopBar from './components/TopBar.tsx';
 import Controls from './components/Controls';
 import StatTable from './components/StatTable';
 import Details from './components/Details';
