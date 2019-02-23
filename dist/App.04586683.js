@@ -34507,7 +34507,6 @@ var _Typography = _interopRequireDefault(require("@material-ui/core/Typography")
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// import PropTypes from 'prop-types';
 var styles = {
   root: {
     flexGrow: 1
@@ -43542,9 +43541,9 @@ var _reactDom = _interopRequireDefault(require("react-dom"));
 
 var _CssBaseline = _interopRequireDefault(require("@material-ui/core/CssBaseline"));
 
-var _isMobile = _interopRequireDefault(require("is-mobile"));
+var Mobile = _interopRequireWildcard(require("is-mobile"));
 
-var _TopBar = _interopRequireDefault(require("./components/TopBar.tsx"));
+var _TopBar = _interopRequireDefault(require("./components/TopBar"));
 
 var _Controls = _interopRequireDefault(require("./components/Controls"));
 
@@ -43574,18 +43573,19 @@ var __assign = void 0 && (void 0).__assign || function () {
   return __assign.apply(this, arguments);
 };
 
+;
+;
+
 var getTableData = function getTableData(allContestants, allWeeks) {
   return (0, _utils.contestantScoreTable)(allContestants, allWeeks);
 };
-
-console.log('one');
 
 var App = function App() {
   var _a = (0, _react.useState)(false),
       allContestants = _a[0],
       setContestants = _a[1];
 
-  var _b = (0, _react.useState)(!(0, _isMobile.default)()),
+  var _b = (0, _react.useState)(!Mobile()),
       allWeeks = _b[0],
       setWeeks = _b[1];
 
@@ -43617,7 +43617,7 @@ var App = function App() {
 };
 
 _reactDom.default.render(_react.default.createElement(App, null), document.getElementById('app'));
-},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","@material-ui/core/CssBaseline":"../node_modules/@material-ui/core/CssBaseline/index.js","is-mobile":"../node_modules/is-mobile/index.js","./components/TopBar.tsx":"components/TopBar.tsx","./components/Controls":"components/Controls.js","./components/StatTable":"components/StatTable.js","./components/Details":"components/Details.js","./utils":"utils.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","@material-ui/core/CssBaseline":"../node_modules/@material-ui/core/CssBaseline/index.js","is-mobile":"../node_modules/is-mobile/index.js","./components/TopBar":"components/TopBar.tsx","./components/Controls":"components/Controls.js","./components/StatTable":"components/StatTable.js","./components/Details":"components/Details.js","./utils":"utils.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -43644,7 +43644,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "45505" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "44011" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

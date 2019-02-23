@@ -1,16 +1,35 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Mobile from 'is-mobile';
+import * as Mobile from 'is-mobile';
 
-import TopBar from './components/TopBar.tsx';
+import TopBar from './components/TopBar';
 import Controls from './components/Controls';
 import StatTable from './components/StatTable';
 import Details from './components/Details';
 
 import { contestantScoreTable, getContestantDetails } from './utils';
 
-const getTableData = (allContestants, allWeeks) => contestantScoreTable(allContestants, allWeeks);
+interface Header {
+  id: number;
+  key: string;
+  display: string;
+};
+
+interface Row {
+  id: number;
+  name: string;
+  image: string;
+};
+
+interface Table {
+  columns: Header[];
+  body: Row[];
+}
+
+const getTableData = (allContestants: boolean, allWeeks: boolean): Table => {
+  return contestantScoreTable(allContestants, allWeeks);
+};
 
 const App = () => {
   const [allContestants, setContestants] = useState(false);
@@ -30,7 +49,7 @@ const App = () => {
         onWeeksToggle={() => setWeeks(!allWeeks)}
       />
       <StatTable
-        onDetailsClick={id => setDetails(getContestantDetails(id))}
+        onDetailsClick={(id: number) => setDetails(getContestantDetails(id))}
         {...tableData}
       />
       <Details
@@ -42,4 +61,4 @@ const App = () => {
   );
 };
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById('app') as HTMLElement);
